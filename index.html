@@ -2,7 +2,7 @@
 <html lang="ro">
 <head>
 <meta charset="utf-8">
-<title>Ghid ThermoSave — pas cu pas (v2)</title>
+<title>Ghid ThermoSave — pas cu pas (v4)</title>
 <style>
   :root{
     --bg:#f6f5f2; --card:#ffffff; --ink:#1c1c1c; --sub:#6b6b6b;
@@ -13,7 +13,7 @@
   header{background:#161a1f;color:#fff;padding:36px 20px 30px;text-align:center}
   header h1{margin:0 0 8px;font-size:26px}
   header p{margin:0;color:#b7bfc8;font-size:15px}
-  .wrap{max-width:780px;margin:0 auto;padding:24px 16px 80px}
+  .wrap{max-width:800px;margin:0 auto;padding:24px 16px 80px}
   .banner{background:#fff3e9;border:2px solid var(--accent);border-radius:14px;padding:16px 18px;margin-bottom:18px;font-size:15px}
   .banner b{color:var(--accent)}
   .banner.red{background:#fdeaea;border-color:#c0392b}
@@ -26,122 +26,100 @@
   .step p.explain{margin:0 0 14px 46px;font-size:15px}
   .inner{margin-left:46px}
   h3.sub{font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:var(--sub);margin:18px 0 8px}
-  .photos{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:6px}
-  .photo{width:96px}
-  .photo img{width:96px;height:96px;object-fit:cover;border-radius:10px;border:1px solid var(--line);display:block}
-  .photo span{display:block;font-size:11px;color:var(--sub);margin-top:4px;text-align:center}
-  .tag{display:inline-block;background:#161a1f;color:#fff;border-radius:6px;padding:2px 7px;font-size:11px;font-weight:700;margin-right:6px;font-family:monospace}
+  .kf{width:100%;max-width:520px;border-radius:12px;border:1px solid var(--line);display:block;margin-bottom:8px}
+  .kfrow{display:flex;gap:10px;flex-wrap:wrap}
+  .kfrow .kf{max-width:250px}
+  .done-tag{display:inline-block;background:#eaf6f0;color:var(--accent2);border:1px solid var(--accent2);border-radius:8px;padding:3px 9px;font-size:12.5px;font-weight:700;margin:4px 0 10px}
   .folder-tag{display:inline-block;background:#eef2f0;color:var(--accent2);border-radius:8px;padding:3px 9px;font-size:12.5px;font-weight:600;margin:4px 0 10px}
-  .codebox{position:relative;background:var(--code-bg);color:var(--code-ink);border-radius:12px;padding:16px 52px 16px 16px;font-family:"JetBrains Mono",Consolas,monospace;font-size:12.5px;line-height:1.55;white-space:pre-wrap;word-break:break-word}
+  .codebox{position:relative;background:var(--code-bg);color:var(--code-ink);border-radius:12px;padding:16px 52px 16px 16px;font-family:"JetBrains Mono",Consolas,monospace;font-size:13px;line-height:1.6;white-space:pre-wrap;word-break:break-word}
   .copybtn{position:absolute;top:10px;right:10px;background:var(--accent);color:#fff;border:none;border-radius:8px;padding:7px 12px;font-size:12px;font-weight:700;cursor:pointer}
   .copybtn:hover{opacity:.9}
   .copybtn.copied{background:var(--accent2)}
-  .vo{background:#eef6f2;border-left:4px solid var(--accent2);border-radius:8px;padding:12px 14px;font-size:14.5px;margin-top:6px}
+  .vo{background:#eef6f2;border-left:4px solid var(--accent2);border-radius:8px;padding:12px 14px;font-size:14.5px;margin-top:10px}
   .vo b{color:var(--accent2)}
-  .save-to{font-size:13.5px;color:var(--sub);margin-top:6px}
   .talk{background:#eef3fb;border:2px solid #2a5a9c;border-radius:10px;padding:14px;margin-top:10px}
   .talk b{color:#2a5a9c}
-  footer{max-width:780px;margin:0 auto;padding:0 16px 60px;color:var(--sub);font-size:13.5px}
+  footer{max-width:800px;margin:0 auto;padding:0 16px 60px;color:var(--sub);font-size:13.5px}
 </style>
 </head>
 <body>
 
 <header>
-  <h1>🎬 ThermoSave — ghid v2: 4 filme × 30 sec</h1>
-  <p>Fundal fix, gura se mișcă, tot cu tag-uri de poze. Urmează pașii în ordine.</p>
+  <h1>🎬 ThermoSave — ghid v4</h1>
+  <p>Toate pozele sunt gata. A rămas doar: vocea + prompturile video în Higgsfield.</p>
 </header>
 
 <div class="wrap">
 
-  <div class="banner">
-    <b>Ce s-a schimbat față de prima variantă:</b>
-    4 acte de 30 sec (nu 6 de 20) = tot 2:00 minute · <b>fundal unic, generat o singură dată</b>, refolosit peste tot,
-    ca să nu mai iasă mizerie de fundal · Actul 2 (unde savantul e aproape de cameră) are pas separat ca să i se miște gura ·
-    fiecare prompt are <b>poze cu tag</b> — <span class="tag">IMG1</span>, <span class="tag">IMG2</span>... —
-    le atașezi în Higgsfield <u>exact în ordinea din listă</u>, ca tag-urile din text să corespundă cu pozele.
+  <div class="banner green">
+    <b>Toate cele 5 poze sunt generate, verificate, gata de folosit</b> — laborator/birou animat, consistent,
+    diacritice corecte peste tot. Nu mai generezi nimic la capitolul poze, doar deschizi Higgsfield și le folosești ca imagini de start/final.
   </div>
 
-  <div class="banner green">
-    <b>Fundalul comun — deja generat, gata de folosit:</b>
-    l-am făcut acum, e curat, exact culorile din brief (#0E1116 + grilă fină). Îl ai în
-    <span class="folder-tag">3-Fundal-comun/fundal_grafit.png</span>. Se folosește ca <span class="tag">IMG1</span>
-    în APROAPE TOATE prompturile de mai jos — de-asta nu se mai strică fundalul: nu-l regenerăm de fiecare dată, doar
-    îi spunem lui nanobanana să-l păstreze exact așa și să adauge lucruri pe el.
+  <div class="banner">
+    <b>Despre voce — simplificat:</b> nu mai e nevoie de ocol prin engleză. Higgsfield nu are un tool de „Dubbing" în română,
+    dar rolul de <b>audio de referință</b> (cel care mișcă gura) nu înțelege limba, doar urmărește sunetul — deci generezi
+    vocea <b>direct în română</b> în ElevenLabs (suportă diacritice nativ) și o folosești direct, fără dublaj ulterior.
   </div>
 
   <div class="banner red">
-    <b>4 setări obligatorii în Higgsfield, la FIECARE clip:</b>
+    <b>Setări obligatorii în Higgsfield, la fiecare clip video:</b>
     <ol style="margin:8px 0 0;padding-left:20px">
-      <li><b>Mode: omni_reference</b> (nu t2v) — altfel nu poți atașa poze.</li>
-      <li><b>Duration = 30</b> — pus ca număr în câmp, nu doar scris în text.</li>
-      <li><b>Audio: OFF</b> — mereu, la toate cele 4 acte, chiar și la Actul 2 unde folosim un fișier audio ca referință (acela controlează DOAR gura, nu adaugă sunet în clip).</li>
-      <li><b>Pozele atașate EXACT în ordinea din listă</b> de la fiecare act, ca <span class="tag">IMG1</span>/<span class="tag">IMG2</span> din prompt să corespundă.</li>
+      <li><b>Mode: omni_reference</b> (nu t2v).</li>
+      <li><b>Duration = 30</b> — pus ca număr în câmp.</li>
+      <li><b>Audio: OFF</b> — mereu, inclusiv la Actul 2 unde atașăm mp3-ul ca referință (acela controlează DOAR gura).</li>
     </ol>
   </div>
 
   <!-- STEP 0 -->
   <div class="step">
-    <div class="step-head"><div class="num">0</div><h2>Vocea savantului — în engleză (o singură dată!)</h2></div>
-    <p class="explain">Higgsfield nu are voci în română. Faci vocea o dată, generezi TOATE replicile de mai jos ca fișiere mp3 separate, și le folosești: unele doar ca ghid pentru tine la dublaj, una (Actul 2) chiar încărcată în Higgsfield ca să miște gura personajului.</p>
+    <div class="step-head"><div class="num">0</div><h2>Vocea savantului — direct în română</h2></div>
+    <p class="explain">O faci o dată, apoi generezi toate replicile ca mp3-uri separate.</p>
     <div class="inner">
       <h3 class="sub">Unde te duci</h3>
       <p style="margin:0 0 10px">Site: <b>elevenlabs.io</b> → <i>Voices → Voice Design</i></p>
 
-      <h3 class="sub">Copiază descrierea vocii, lipește-o acolo</h3>
-      <div class="codebox" id="c0">Middle-aged male voice, deep chest resonance, calm and deliberate, documentary narrator register, slow unhurried pace, slight academic authority without being cold, minimal breathiness, clean studio recording quality, natural warmth under the gravity, neutral standard English accent.</div>
+      <h3 class="sub">Descrierea vocii</h3>
+      <div class="codebox" id="c0">Middle-aged Romanian male voice, deep chest resonance, calm and deliberate, documentary narrator register, slow unhurried pace, slight academic authority without being cold, minimal breathiness, clean studio recording quality, natural warmth under the gravity.</div>
+      <p style="margin:6px 0 0">Salveaz-o ca <b>Savant ThermoSave</b>. Model de generare: <b>Eleven Multilingual v2</b> (recunoaște diacriticele românești corect).</p>
 
-      <h3 class="sub">După ce iese vocea</h3>
-      <p style="margin:0">Salveaz-o cu numele exact: <b>Savant ThermoSave</b>.</p>
+      <h3 class="sub">Toate cele 5 replici — în română</h3>
+      <div class="codebox" id="vo_a1_1">Aceeași sursă. Aceeași durată. Aceeași tablă.</div>
+      <p style="margin:4px 0 12px;color:var(--sub);font-size:13.5px">💾 replica1_act1.mp3</p>
 
-      <h3 class="sub">Toate cele 5 replici — generează-le acum, pe rând, cu vocea de mai sus</h3>
-      <p style="margin:0 0 8px;font-size:13.5px;color:var(--sub)">Text to Speech → alegi vocea <b>Savant ThermoSave</b> → lipești → generezi → salvezi mp3-ul cu numele indicat.</p>
+      <div class="codebox" id="vo_a1_2">Diferența nu e grosimea. E emisivitatea suprafeței.</div>
+      <p style="margin:4px 0 12px;color:var(--sub);font-size:13.5px">💾 replica2_act1.mp3</p>
 
-      <div class="codebox" id="vo_a1_1">The same source. // The same duration. // The same plate.</div>
-      <p class="save-to">💾 Salvează ca <b>replica1_act1.mp3</b></p>
+      <div class="codebox" id="vo_a2_1">Conducția o calculăm. Convecția o tabelăm. Radiația... o presupunem.</div>
+      <p style="margin:4px 0 12px;color:var(--sub);font-size:13.5px">💾 replica1_act2.mp3</p>
 
-      <div class="codebox" id="vo_a1_2">The difference isn't the thickness. // It's the surface emissivity.</div>
-      <p class="save-to">💾 Salvează ca <b>replica2_act1.mp3</b></p>
+      <div class="codebox" id="vo_a2_2">Presupunem că fiecare suprafață din clădire e un corp negru. Nimeni nu verifică asta.</div>
+      <p style="margin:4px 0 12px;color:var(--sub);font-size:13.5px">💾 replica2_act2.mp3 — <b>cea importantă</b>, se încarcă în Higgsfield pentru gură.</p>
 
-      <div class="codebox" id="vo_a2_1">Conduction, we calculate. // Convection, we look up. // Radiation... we assume.</div>
-      <p class="save-to">💾 Salvează ca <b>replica1_act2.mp3</b></p>
+      <div class="codebox" id="vo_a4_1">Singura diferență: o jumătate de milimetru.</div>
+      <p style="margin:4px 0 0;color:var(--sub);font-size:13.5px">💾 replica1_act4.mp3</p>
 
-      <div class="codebox" id="vo_a2_2">We assume every surface in the building is a black body. // Nobody checks that.</div>
-      <p class="save-to">💾 Salvează ca <b>replica2_act2.mp3</b> — <b>asta e cea importantă</b>, o încarci direct în Higgsfield la Actul 2, ca să vezi gura mișcându-se.</p>
-
-      <div class="codebox" id="vo_a4_1">The only difference: // half a millimeter.</div>
-      <p class="save-to">💾 Salvează ca <b>replica1_act4.mp3</b></p>
-
-      <p style="margin:10px 0 0;font-size:14px">Actul 3 (Peretele) nu are replică — e tăcere, doar imagine.</p>
+      <p style="margin:10px 0 0;font-size:14px">Actul 3 (Peretele) — tăcere, fără replică.</p>
     </div>
   </div>
 
   <!-- ACT 1 -->
   <div class="step">
-    <div class="step-head"><div class="num">1</div><h2>Actul 1 — Experimentul + Mecanismul</h2></div>
+    <div class="step-head"><div class="num">1</div><h2>Actul 1 — Experimentul</h2></div>
     <p class="when">0:00–0:30</p>
-    <p class="explain">Începe cu standul (lămpi + probe), apoi trece în zoom macro pe mecanism (undele absorbite vs. reflectate). Personajul e mic, în fundal — nu trebuie să vorbească vizibil aici.</p>
+    <p class="explain">Standul cu lămpi și probe, pe biroul din laborator.</p>
     <div class="inner">
-
-      <h3 class="sub">Poze de atașat în nanobanana, ÎN ORDINEA ASTA — poza #1 (keyframe START)</h3>
-      <div class="photos">
-        <div class="photo"><img src="3-Fundal-comun/fundal_grafit.png"><span class="tag">IMG1</span> fundalul</div>
-        <div class="photo"><img src="1-Savantul/1_poze_intregi_4_ipostaze.png"><span class="tag">IMG2</span> savant neutru</div>
-        <div class="photo"><img src="2-Laborator-vechi/6_lampi_iluminate_glow.jpeg"><span class="tag">IMG3</span> lămpile</div>
-      </div>
-      <div class="codebox" id="c1a">Use [IMG1] as the exact background — keep its dark graphite color #0E1116 and the fine technical grid completely unchanged, do not redraw or alter it. On top of that background, add in flat vector illustration style: two identical tall infrared heat-lamp domes on a metal stand arm (matching the shape in [IMG3], redrawn as flat vector), pointing down at two identical vertical metal cylindrical probes. The right probe has a thin pale coating band around its upper section, no text. Thin wires run down to a small handheld device with a blank rectangular LCD screen, no digits. Warm orange glow under each lamp. In the lower-left corner, small, at 70% opacity, place the scientist from [IMG2], neutral pose, white lab coat, glasses. Flat vector illustration, clean geometric shapes, thin white 2px outlines, technical infographic style, no text, no numbers, no labels, 1920x1080, cinematic wide shot.</div>
-      <p class="save-to">💾 Salvează ca <b>1.png</b> în <span class="folder-tag">4-Act1-ExperimentSiMecanism</span></p>
-
-      <h3 class="sub">Poza #2 (keyframe FINAL) — nu ai nevoie de poze noi, doar de <span class="tag">IMG1</span></h3>
-      <div class="codebox" id="c1b">Flat vector macro cross-section illustration, matching the same dark color palette and grain as [IMG1]. Split exactly down the vertical center by a thin bright line. LEFT half: bare gray metal surface (#9AA3AE) with orange wavy infrared arcs arriving from the left and being absorbed, glowing intense orange-red at contact. RIGHT half: the same surface covered by a thin pale coating (#E8E4DA); orange wavy arcs arrive and curve back away, reflected; surface stays cool blue-gray. No text, no numbers. Flat vector illustration, clean geometric shapes, thin white 2px outlines, technical infographic style, 1920x1080, extreme close-up macro framing.</div>
-      <p class="save-to">💾 Salvează ca <b>2.png</b> în același folder</p>
+      <span class="done-tag">✅ Poza gata</span>
+      <img class="kf" src="4-Act1-ExperimentSiMecanism/1_experiment_stand.png">
+      <p class="folder-tag">4-Act1-ExperimentSiMecanism/1_experiment_stand.png</p>
 
       <h3 class="sub">În Higgsfield</h3>
-      <p style="margin:0 0 10px">START = <b>1.png</b> · FINAL = <b>2.png</b> · fără poze de referință suplimentare, fără audio.</p>
+      <p style="margin:0 0 10px">START = poza de mai sus · fără FINAL, fără audio.</p>
 
       <h3 class="sub">Promptul video</h3>
-      <div class="codebox" id="c1v">Duration 30 seconds, continuous motion for the ENTIRE duration, nothing goes fully still at any point. Seconds 0-4: lamps ignite, glow ramps up. Seconds 4-16: heat-shimmer waves continuously drift downward from the lamps toward the probes in a repeating loop every 2-3 seconds; the measurement screen keeps a slow breathing glow pulse; the scientist in the corner breathes visibly and shifts weight once. Camera performs a slow continuous push-in toward the probes. Seconds 16-30: smoothly transition into the macro split-screen end image — on the left, orange wave arcs continuously arrive and are absorbed with a visible glow pulse every 1.5-2 seconds; on the right, identical arcs arrive and curve back away, deflected, every 1.5-2 seconds. Keep both sides looping without pause through the last frame. No text, no numbers, no on-screen labels.</div>
+      <div class="codebox" id="c1v">Duration 30 seconds, continuous motion for the ENTIRE duration, nothing goes fully still. Seconds 0-4: lamps ignite, glow ramps up. Seconds 4-30: heat-shimmer waves continuously drift downward from the lamps toward the probes in a repeating loop every 2-3 seconds; the small screen keeps a slow breathing glow pulse; the scientist breathes visibly and shifts weight once around second 15, occasionally glancing between the probes and the camera. Camera performs a slow continuous push-in toward the stand over the full 30 seconds. No text changes, no on-screen labels beyond what's already drawn.</div>
 
-      <div class="vo"><b>Replici pentru acest act (deja făcute la Pasul 0):</b> replica1_act1.mp3 (secundele 0-14) + replica2_act1.mp3 (secundele 16-30) — le pui TU peste clip în montaj, nu în Higgsfield.</div>
+      <div class="vo"><b>Replici (peste clip, în montaj):</b> replica1_act1.mp3 (0-14s) + replica2_act1.mp3 (16-30s).</div>
     </div>
   </div>
 
@@ -149,42 +127,31 @@
   <div class="step">
     <div class="step-head"><div class="num">2</div><h2>Actul 2 — Cele trei căi + ε = 0,90</h2></div>
     <p class="when">0:30–1:00</p>
-    <p class="explain">Cele 3 panouri, apoi savantul vine aproape de cameră, brațele încrucișate, ștampila verde. <b>Aici trebuie să i se miște gura</b> — are pas separat mai jos.</p>
+    <p class="explain">Prima jumătate: tabla cu cele 3 căi. A doua: savantul aproape, ε = 0,90, gura i se mișcă.</p>
     <div class="inner">
-
-      <h3 class="sub">Poze de atașat în nanobanana — poza #1 (keyframe START, cele 3 panouri)</h3>
-      <div class="photos">
-        <div class="photo"><img src="3-Fundal-comun/fundal_grafit.png"><span class="tag">IMG1</span> fundalul</div>
-        <div class="photo"><img src="1-Savantul/1_poze_intregi_4_ipostaze.png"><span class="tag">IMG2</span> savant neutru</div>
+      <span class="done-tag">✅ Ambele poze gata</span>
+      <div class="kfrow">
+        <img class="kf" src="5-Act2-CeleTreiCaiSiEpsilon/1_tabla_conductie_convectie_radiatie.png">
+        <img class="kf" src="5-Act2-CeleTreiCaiSiEpsilon/2_epsilon_savant_aproape.png">
       </div>
-      <div class="codebox" id="c2a">Use [IMG1] as the exact background, unchanged, dark graphite with fine grid. On top, add three equal rectangular flat vector panels aligned horizontally, thin white 2px borders. Panel 1: horizontal metal rod, orange-to-blue gradient. Panel 2: small radiator with round particles looping vertically, orange rising one side, blue falling the other. Panel 3: small sun icon left, empty space middle, flat wall block right, curved orange wave arcs crossing toward the wall. No text under panels. Lower-left, small, 60% opacity, the scientist from [IMG2], neutral pose. Flat vector illustration, clean geometric shapes, thin white 2px outlines, technical infographic style, no text, no numbers, 1920x1080.</div>
-      <p class="save-to">💾 Salvează ca <b>1.png</b> în <span class="folder-tag">5-Act2-CeleTreiCaiSiEpsilon</span></p>
-
-      <h3 class="sub">Poza #2 (keyframe FINAL, ε = 0,90, savantul aproape)</h3>
-      <div class="photos">
-        <div class="photo"><img src="3-Fundal-comun/fundal_grafit.png"><span class="tag">IMG1</span> fundalul</div>
-        <div class="photo"><img src="1-Savantul/1_poze_intregi_4_ipostaze.png"><span class="tag">IMG2</span> savant brațe încrucișate</div>
-        <div class="photo"><img src="1-Savantul/2_expresii_fata_6_variante.png"><span class="tag">IMG3</span> expresii/gura</div>
-      </div>
-      <div class="codebox" id="c2b">Use [IMG1] as the exact background, unchanged. In the background, add the three panels from before, now dimmed to 25% opacity, slightly blurred. In the foreground, larger, centered-left, the scientist from [IMG2], arms-crossed pose, white lab coat, glasses, confident expression, mouth relaxed and slightly parted as if about to speak (reference [IMG3] for natural mouth shape, not fully closed, not smiling). To the right, an empty thin bright green (#7FD4A8) 2.4px rounded rectangle outline, completely empty inside. Flat vector illustration, clean geometric shapes, thin white 2px outlines, technical infographic style, no text, no numbers, 1920x1080, medium shot framing the face and chest clearly.</div>
-      <p class="save-to">💾 Salvează ca <b>2.png</b> în același folder</p>
+      <p class="folder-tag">5-Act2-CeleTreiCaiSiEpsilon/1_...png (START) + 2_...png (FINAL)</p>
 
       <h3 class="sub">În Higgsfield</h3>
-      <p style="margin:0 0 10px">START = <b>1.png</b> · FINAL = <b>2.png</b> · fără poze de referință suplimentare pe partea vizuală.</p>
+      <p style="margin:0 0 10px">START = poza 1 · FINAL = poza 2.</p>
 
       <h3 class="sub">Promptul video</h3>
-      <div class="codebox" id="c2v">Duration 30 seconds, continuous motion for the ENTIRE duration, nothing goes fully still at any point. Seconds 0-14: all three panels animate non-stop — panel 1 gradient slides every 2 seconds, panel 2 particles loop continuously, panel 3 wave arcs travel and the wall flashes every 2 seconds; the scientist in the background breathes visibly. Seconds 14-30: transition smoothly into the close-up scientist, arms crossed. The scientist's mouth moves naturally as if speaking, matching a calm deliberate speech rhythm with clear consonant and vowel shapes, opening and closing naturally, not just idle — this is the character talking on camera. One slow eye blink around second 20. At second 22, the empty green rectangle snaps to a slightly larger scale then settles in 6 frames. From second 22 to 30, the rectangle keeps a slow breathing glow pulse, the dimmed panels keep faint looping motion, camera performs a very slow continuous push-in. No text, no numbers, no on-screen labels.</div>
+      <div class="codebox" id="c2v">Duration 30 seconds, continuous motion for the ENTIRE duration. Seconds 0-14: gentle camera drift across the whiteboard diagram, as if reading it, the drawings feel alive with subtle looping motion (the arrow on the rod pulses, the radiator arrows loop, the sun rays shimmer). Seconds 14-30: transition smoothly into the close-up scientist, arms crossed, in front of the new whiteboard text. The scientist's mouth moves naturally as if speaking, matching a calm deliberate speech rhythm, opening and closing naturally — this is the character talking on camera. One slow eye blink around second 20. Camera performs a very slow continuous push-in. No changes to the written text on the board.</div>
 
       <div class="talk">
-        <b>Pasul special — ca să i se miște gura (obligatoriu la actul ăsta):</b>
+        <b>Pas special — ca să i se miște gura:</b>
         <ol style="margin:8px 0 0;padding-left:20px">
-          <li>În Higgsfield, la aceeași generare, mai adaugi un fișier: <b>replica2_act2.mp3</b> (cel generat la Pasul 0) — cu rolul <b>audio reference</b> (uneori apare ca „audio de referință" sau „driving audio").</li>
-          <li>Asta face ca AI-ul să miște gura personajului exact după silabele din acel mp3, în timp real, când generează clipul.</li>
-          <li>Dacă tot nu i se mișcă gura bine din prima, caută în Higgsfield tool-ul separat de <b>Dubbing / Lip-sync</b>, încarci clipul deja generat + alegi limba engleză — sincronizează gura peste orice sunet există în clip, ca a doua încercare.</li>
+          <li>La aceeași generare, mai atașezi fișierul <b>replica2_act2.mp3</b> (română), cu rolul „audio de referință" (driving audio).</li>
+          <li>AI-ul mișcă gura după silabele din mp3 — limba nu contează pentru el, doar sunetul.</li>
+          <li>Dacă tot nu iese bine, caută tool-ul separat <b>Dubbing / Lip-sync</b> din Higgsfield — dar acela NU suportă română, ține-l doar ca rezervă pe engleză dacă e nevoie.</li>
         </ol>
       </div>
 
-      <div class="vo"><b>Replici pentru acest act:</b> replica1_act2.mp3 (secundele 30-45 din film) + replica2_act2.mp3 (secundele 47-60 din film, cea cu gura sincronizată).</div>
+      <div class="vo"><b>Replici:</b> replica1_act2.mp3 (30-45s din film) + replica2_act2.mp3 (47-60s, cu gura sincronizată).</div>
     </div>
   </div>
 
@@ -192,23 +159,19 @@
   <div class="step">
     <div class="step-head"><div class="num">3</div><h2>Actul 3 — Peretele</h2></div>
     <p class="when">1:00–1:30</p>
-    <p class="explain">Peretele în secțiune, 4 straturi, flux termic curgând. Fără personaj, fără replică — doar imagine, 30 de secunde pline de mișcare.</p>
+    <p class="explain">Fără personaj vizibil, fără replică — doar tabla cu peretele în secțiune.</p>
     <div class="inner">
-
-      <h3 class="sub">Poze de atașat în nanobanana</h3>
-      <div class="photos">
-        <div class="photo"><img src="3-Fundal-comun/fundal_grafit.png"><span class="tag">IMG1</span> fundalul</div>
-      </div>
-      <div class="codebox" id="c3a">Use [IMG1] as the exact background, unchanged. On top, add a flat vector technical cross-section of a building wall, four vertical layers stacked left to right, each with fine white technical hatching at 20% opacity: layer 1 exterior plaster (#6E6357), layer 2 brick (#8C4A3A), layer 3 mineral wool insulation (#5A6472), layer 4 interior plaster (#B9BCC1). Several thin horizontal orange (#E9A13B) flowing lines cross through all four layers, fading as they cross the insulation. No text, no numbers. Flat vector illustration, clean geometric shapes, thin white 2px outlines, technical infographic style, 1920x1080, wall centered filling two-thirds of frame width.</div>
-      <p class="save-to">💾 Salvează ca <b>1.png</b> în <span class="folder-tag">6-Act3-Peretele</span></p>
+      <span class="done-tag">✅ Poza gata</span>
+      <img class="kf" src="6-Act3-Peretele/1_tabla_perete.png">
+      <p class="folder-tag">6-Act3-Peretele/1_tabla_perete.png</p>
 
       <h3 class="sub">În Higgsfield</h3>
-      <p style="margin:0 0 10px">START = <b>1.png</b> · fără imagine FINAL, fără poze de referință, fără audio.</p>
+      <p style="margin:0 0 10px">START = poza de mai sus · fără FINAL, fără audio.</p>
 
       <h3 class="sub">Promptul video</h3>
-      <div class="codebox" id="c3v">Duration 30 seconds, continuous motion for the ENTIRE duration, nothing goes fully still at any point. Seconds 0-2: the four wall layers draw in progressively left to right. Seconds 2-30: orange horizontal flux lines flow continuously left to right through the wall in an endless loop, a new line starting roughly every second, slowing and dimming through the insulation layer then continuing fainter, non-stop until the last frame. Camera performs a slow continuous horizontal drift across the wall for the full 30 seconds, plus a very slight slow zoom-in in the second half. No text, no numbers, no on-screen labels. Never let the wall hold fully static.</div>
+      <div class="codebox" id="c3v">Duration 30 seconds, continuous motion for the ENTIRE duration. The small arrows drawn through the wall layers continuously animate flowing left to right in an endless loop, a new pulse roughly every second, slowing and dimming through the insulation layer, non-stop until the last frame. Camera performs a slow continuous horizontal drift across the whiteboard for the full 30 seconds, plus a very slight zoom-in in the second half. No changes to the written text or labels. Never let the board hold fully static.</div>
 
-      <div class="vo"><b>Vocea:</b> tăcere — nu vorbește nimeni în acest act.</div>
+      <div class="vo"><b>Vocea:</b> tăcere.</div>
     </div>
   </div>
 
@@ -216,41 +179,36 @@
   <div class="step">
     <div class="step-head"><div class="num">4</div><h2>Actul 4 — Cifra finală + Brand</h2></div>
     <p class="when">1:30–2:00</p>
-    <p class="explain">Cele 2 probe (spații goale pentru cifre), apoi ecranul revine la fundalul curat, gata pentru numele THERMOSAVE.</p>
+    <p class="explain">Tabla cu cele 2 probe și temperaturile, apoi se șterge și rămâne numele THERMOSAVE.</p>
     <div class="inner">
-
-      <h3 class="sub">Poze de atașat în nanobanana — poza #1 (keyframe START)</h3>
-      <div class="photos">
-        <div class="photo"><img src="3-Fundal-comun/fundal_grafit.png"><span class="tag">IMG1</span> fundalul</div>
-        <div class="photo"><img src="2-Laborator-vechi/8_termocuplu_cifre_reale.jpeg"><span class="tag">IMG2</span> forma probelor</div>
+      <span class="done-tag">✅ Ambele poze gata</span>
+      <div class="kfrow">
+        <img class="kf" src="7-Act4-FinalSiBrand/1_probe_cifre.png">
+        <img class="kf" src="7-Act4-FinalSiBrand/2_brand_final.png">
       </div>
-      <div class="codebox" id="c4a">Use [IMG1] as the exact background, unchanged. On top, add a close-up of two identical vertical metal cylindrical probes side by side (shape reference [IMG2], redrawn as flat vector), filling most of the frame. Left probe: radiating heat, wavy orange (#E9A13B) lines rising upward. Right probe: cool, subtle blue (#3E8FD0) tint, calm. Empty flat space above each probe reserved for a large number, completely blank, no digits. Empty flat space between them near the top reserved for a delta value, blank. Flat vector illustration, clean geometric shapes, thin white 2px outlines, technical infographic style, no text, 1920x1080, symmetric centered composition.</div>
-      <p class="save-to">💾 Salvează ca <b>1.png</b> în <span class="folder-tag">7-Act4-FinalSiBrand</span></p>
-
-      <h3 class="sub">Poza #2 (keyframe FINAL) — nu mai generezi nimic nou</h3>
-      <p style="margin:0 0 10px">Folosești direct <span class="tag">IMG1</span>, adică <b>3-Fundal-comun/fundal_grafit.png</b> — e deja exact ecranul gol de brand de care ai nevoie.</p>
+      <p class="folder-tag">7-Act4-FinalSiBrand/1_...png (START) + 2_...png (FINAL)</p>
 
       <h3 class="sub">În Higgsfield</h3>
-      <p style="margin:0 0 10px">START = <b>1.png</b> (probele) · FINAL = <b>fundal_grafit.png</b> (direct din folderul 3) · fără audio.</p>
+      <p style="margin:0 0 10px">START = poza 1 · FINAL = poza 2 · fără audio.</p>
 
       <h3 class="sub">Promptul video</h3>
-      <div class="codebox" id="c4v">Duration 30 seconds, continuous motion for the ENTIRE duration up until the final transition. Transition smoothly from the start image to the end image. Seconds 0-20: the left probe's rising orange wave lines continuously animate upward in a nonstop loop, a new wave roughly every second, intensifying slightly; the right probe keeps a very slow subtle blue shimmer pulse, never fully frozen. The blank number spaces stay empty the whole time. Seconds 20-30: ease smoothly into the empty graphite end scene, the probes and glow fading out softly, becoming still only in the last 1-2 seconds. Camera static. No text, no numbers, no on-screen labels.</div>
+      <div class="codebox" id="c4v">Duration 30 seconds, continuous motion for the ENTIRE duration up until the final transition. Transition smoothly from the start image to the end image. Seconds 0-20: the wavy orange lines above the left probe continuously animate upward in a nonstop loop, intensifying slightly; the right probe keeps a very slow subtle blue shimmer. The written numbers stay fixed, unchanged. Seconds 20-30: ease smoothly into the clean end board, the probe drawing fading out softly as the final text becomes clearly readable, settling by the last 1-2 seconds. Camera static. No changes to the final written text.</div>
 
-      <div class="vo"><b>Replică:</b> replica1_act4.mp3 (secundele 90-105 din film), apoi tăcere, apoi un impact sonor grav chiar când ecranul devine gol.</div>
+      <div class="vo"><b>Replică:</b> replica1_act4.mp3 (90-105s din film), apoi tăcere, apoi impact sonor grav când apare textul final.</div>
     </div>
   </div>
 
   <!-- STEP 5 -->
   <div class="step">
     <div class="step-head"><div class="num">5</div><h2>La final — montaj</h2></div>
-    <p class="explain">După ce ai toate cele 4 clipuri video (2:00 în total):</p>
+    <p class="explain">După ce ai toate cele 4 clipuri (2:00 în total):</p>
     <div class="inner">
       <ul style="margin:0;padding-left:18px;font-size:15px">
-        <li>Le pui unul după altul, în ordine, cu o tranziție scurtă între ele.</li>
-        <li>Adaugi manual, text scris de mână (nu AI): <code>ε = 0,90</code>, <code>ε = 0,10</code>, temperaturile, <code>Δ 83,1 °C</code>, și la final <code>THERMOSAVE</code>. Toate cu virgulă românească.</li>
-        <li>Pentru Actul 2 (partea cu gura), dublezi în română peste englezul cu care ai sincronizat gura, cât mai aproape de aceleași silabe.</li>
-        <li>Pentru celelalte replici (fără gură sincronizată), dublajul e mai liber, doar sincronizat pe cadru.</li>
-        <li>Dronă gravă continuă pe tot filmul + impact sonor la finalul Actului 2 (ε) și la finalul Actului 4 (Brand).</li>
+        <li>Le pui unul după altul, cu o tranziție scurtă.</li>
+        <li>Textul de pe tablă e deja copt în imagine — verifici cu atenție că nu e nimic scris greșit înainte să livrezi.</li>
+        <li>Peste Actul 2, pui replica2_act2.mp3 exact sincronizată cu momentul unde ai atașat-o ca audio de referință în Higgsfield.</li>
+        <li>Dronă gravă continuă + impact sonor la finalul Actului 2 și la finalul Actului 4.</li>
+        <li><b>Atenție:</b> dacă Ionescu schimbă cifrele finale, trebuie regenerată poza de pe tablă din Actul 3/4 — e parte din desen acum, nu text editabil.</li>
       </ul>
     </div>
   </div>
