@@ -134,7 +134,11 @@
       <p style="margin:0 0 10px">START = poza generată deja · poze de referință = cele 6 de mai sus (rol: image references) · fără FINAL, fără audio.</p>
 
       <h3 class="sub">Promptul video</h3>
-      <div class="codebox" id="c1v">Duration 30 seconds, continuous motion for the ENTIRE duration, nothing goes fully still. Keep the scientist's face and proportions consistent with @image2 and @image3 throughout. Seconds 0-4: lamps ignite, glow ramps up. Seconds 4-30: heat-shimmer waves continuously drift downward from the lamps toward the probes in a repeating loop every 2-3 seconds; the small screen keeps a slow breathing glow pulse; the scientist breathes visibly and shifts weight once around second 15, occasionally glancing between the probes and the camera. Camera performs a slow continuous push-in toward the stand over the full 30 seconds. No text changes, no on-screen labels beyond what's already drawn.</div>
+      <div class="codebox" id="c1v">Duration 30 seconds, continuous motion for the ENTIRE duration, nothing goes fully still. Keep the scientist's face and proportions consistent with @image2 and @image3 throughout. The scientist is talking on camera for almost the entire 30 seconds — his mouth continuously opens and closes, articulating clearly, syllable by syllable, matching a calm deliberate speech rhythm, never staying shut or frozen while he is on screen. Seconds 0-2: lamps ignite, glow ramps up, mouth still closed. From second 2 onward: the mouth is actively moving and talking, in sync with natural speech, while he occasionally glances between the probes and the camera. Heat-shimmer waves continuously drift downward from the lamps toward the probes in a repeating loop every 2-3 seconds; the small screen keeps a slow breathing glow pulse. Camera performs a slow continuous push-in toward the stand over the full 30 seconds. No text changes, no on-screen labels beyond what's already drawn.</div>
+
+      <div class="talk">
+        <b>Pas special — gura (și aici, nu doar la Actul 2):</b> la aceeași generare, atașezi <b>replica1_act1.mp3</b> cu rolul „audio de referință" (driving audio), ca AI-ul să sincronizeze mișcarea gurii pe silabele reale, nu doar să o miște generic.
+      </div>
 
       <div class="vo"><b>Replică:</b> replica1_act1.mp3, aproape tot actul (2-27s din 30).</div>
     </div>
@@ -165,10 +169,10 @@
       <p style="margin:0 0 10px">START = poza 1 · FINAL = poza 2 · poze de referință = cele 6 de mai sus.</p>
 
       <h3 class="sub">Promptul video</h3>
-      <div class="codebox" id="c2v">Duration 30 seconds, continuous motion for the ENTIRE duration. Keep the scientist's face, hair, and outfit consistent with @image2, @image3 and @image4 throughout. Seconds 0-14: gentle camera drift across the whiteboard diagram, as if reading it, the drawings feel alive with subtle looping motion (the arrow on the rod pulses, the radiator arrows loop, the sun rays shimmer). Seconds 14-30: transition smoothly into the close-up scientist, arms crossed, in front of the new whiteboard text. The scientist's mouth moves naturally as if speaking, matching a calm deliberate speech rhythm, opening and closing naturally — this is the character talking on camera. One slow eye blink around second 20. Camera performs a very slow continuous push-in. No changes to the written text on the board.</div>
+      <div class="codebox" id="c2v">Duration 30 seconds, continuous motion for the ENTIRE duration. Keep the scientist's face, hair, and outfit consistent with @image2, @image3 and @image4 throughout. Seconds 0-14: no character close-up yet, gentle camera drift across the whiteboard diagram, as if reading it, the drawings feel alive with subtle looping motion (the arrow on the rod pulses, the radiator arrows loop, the sun rays shimmer). Seconds 14-30: transition smoothly into the close-up scientist, arms crossed, in front of the new whiteboard text. From the moment his face is on screen, his mouth is continuously and clearly talking — opening and closing syllable by syllable, matching a calm deliberate speech rhythm, never staying shut or static while his face is visible. This is the character actively speaking on camera, not idling. One slow eye blink around second 20. Camera performs a very slow continuous push-in. No changes to the written text on the board.</div>
 
       <div class="talk">
-        <b>Pas special — gura:</b> la aceeași generare, mai atașezi <b>replica2_act2.mp3</b> cu rolul „audio de referință" (driving audio). AI-ul mișcă gura după sunet, indiferent de limbă.
+        <b>Pas special — gura:</b> la aceeași generare, mai atașezi <b>replica2_act2.mp3</b> cu rolul „audio de referință" (driving audio), acoperind exact secundele 14-30 ale clipului (când i se vede fața). AI-ul sincronizează gura pe silabele reale din mp3, nu doar o mișcă generic — limba nu contează pentru el, doar sunetul.
       </div>
 
       <div class="vo"><b>Replici:</b> replica1_act2.mp3 (31-54s) + replica2_act2.mp3 (44-59s, cu gura sincronizată) — aproape tot actul acoperit.</div>
